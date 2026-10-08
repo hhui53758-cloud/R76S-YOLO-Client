@@ -1,0 +1,9 @@
+path: datasets/trash
+train: images/train
+val: images/val
+test: images/test
+names:
+  0: recyclable waste
+  1: hazardous waste
+  2: kitchen waste
+  3: other waste

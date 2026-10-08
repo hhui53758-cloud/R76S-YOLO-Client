@@ -1,5 +1,10 @@
 # R76S YOLO 垃圾分类检测客户端
 
+[![自动测试](https://github.com/hhui53758-cloud/R76S-YOLO-Client/actions/workflows/checks.yml/badge.svg)](https://github.com/hhui53758-cloud/R76S-YOLO-Client/actions/workflows/checks.yml)
+[![下载客户端](https://img.shields.io/github/v/release/hhui53758-cloud/R76S-YOLO-Client)](https://github.com/hhui53758-cloud/R76S-YOLO-Client/releases/latest)
+
+[下载 Windows 客户端](https://github.com/hhui53758-cloud/R76S-YOLO-Client/releases/latest) · [普通用户说明](windows_client/用户使用说明.md) · [训练入口](training/README.md) · [数据集来源](training/DATASET.md) · [反馈问题](https://github.com/hhui53758-cloud/R76S-YOLO-Client/issues)
+
 一个 Windows 图形客户端，同时支持本机 ONNX 推理与 NanoPi R76S 的 RK3576 NPU 推理。普通使用者可以下载便携版；开发者可以克隆源码运行、修改和打包。
 
 支持四类：可回收物、有害垃圾、厨余垃圾、其他垃圾。模型存在误报和泛化局限，项目用于学习和演示，不应将检测结果当作可靠的垃圾处置建议。
@@ -15,7 +20,7 @@
 
 ## 快速开始：只用 Windows
 
-普通用户从本项目的 Releases 页面下载完整 Windows ZIP，完整解压后双击 `R76S-YOLO-Client.exe`。必须保留旁边的 `_internal` 文件夹。源码 ZIP 不是便携运行包。
+普通用户从 [Releases 下载页](https://github.com/hhui53758-cloud/R76S-YOLO-Client/releases/latest) 下载 `R76S-YOLO-Client-Windows-x64.zip`，完整解压后双击 `R76S-YOLO-Client.exe`。必须保留旁边的 `_internal` 文件夹。GitHub 的 Source code ZIP 是源码，不是便携运行包。
 
 开发者安装 Windows 64 位 Python 3.11 或 3.12（包含 Tkinter 和 Python Launcher），在仓库根目录执行：
 
@@ -47,6 +52,7 @@ $env:R76S_SERVER_URL = "http://192.168.1.50:8765"
 ```text
 windows_client/       图形界面、双端后端、网络工具和测试
 deploy/               模型、模型契约、R76S 服务和安装脚本
+training/             训练入口、历史参数与真实指标、数据来源
 docs/                 使用、架构、网络、部署和发布文档
 scripts/              可移植打包与项目检查工具
 licenses/             随附第三方许可证
@@ -77,5 +83,18 @@ ONNX（Open Neural Network Exchange，开放神经网络交换格式）用于 Wi
 - [网络切换与校园网认证](docs/NETWORK.md)
 - [上传 GitHub 和发布](docs/PUBLISH_GITHUB.md)
 - [第三方来源和许可状态](THIRD_PARTY_NOTICES.md)
+- [训练与复现限制](training/README.md)
+- [数据集来源、划分与许可](training/DATASET.md)
+- [参与开发](CONTRIBUTING.md)
 
-本仓库包含约 27 MB 的三份模型，不包含训练数据、个人照片、设备密钥、日志、系统镜像和运行环境。第三方与模型许可状态见说明；尚未对原创部分选择开放源码许可证，上传 GitHub 不等于授予任意商业使用权。
+## 数据与许可
+
+训练数据来源由项目作者确认是 [Keai Xiao 的 Roboflow waste](https://universe.roboflow.com/keai-xiao-zwt9l/waste-8vlsn)，来源页标注 CC BY 4.0（Creative Commons Attribution 4.0，知识共享署名 4.0）。本地使用 2743 张，来源页为 2739 张，历史版本和差额尚待核对；详见数据说明与检查报告。先通过来源页获取数据，不将未追溯差异的本地快照当作上游原版发布。
+
+本仓库包含约 27 MB 的三份部署模型、训练脚本与历史记录；不包含训练图片、个人照片、设备密钥、日志、系统镜像和运行环境。数据集许可与训练框架、模型、原创客户端代码的许可分别处理。原创代码许可证尚待作者选择，没有擅自将整个项目设成 MIT 或 Apache-2.0。
+
+## 历史训练表现
+
+标准 YOLO11n 历史记录共 113 轮，按验证集 mAP50-95 排序，第 95 轮最高：Precision 0.87424、Recall 0.82434、mAP50 0.89297、mAP50-95 0.62386。这是单次历史验证结果，不是独立测试成绩或实际摄像头性能保证。发现一组训练/验证跨组重复图片，原始划分暂未修改；[完整记录与局限](training/HISTORICAL_RESULTS.md)。
+
+![历史训练曲线](training/results.png)

@@ -19,6 +19,8 @@ NumPy、OpenCV、ONNX Runtime、Pillow、Python/Tkinter、PyInstaller 与 Rockch
 
 ## 模型与原创代码
 
-三份模型由 Ultralytics YOLO 训练模型经 Rockchip 适配导出/转换获得。权重、训练数据及训练框架授权尚需作者核实；不将它们声明为 Apache-2.0 或 MIT。
+训练数据来源经项目作者确认是 Keai Xiao 的 [Roboflow waste](https://universe.roboflow.com/keai-xiao-zwt9l/waste-8vlsn)，上游标注 [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。归属、许可、历史版本及本地数量差异见 `training/DATASET.md`；不将未追溯新增部分直接认定为上游许可数据。
+
+三份模型由 Ultralytics YOLO 训练模型经 Rockchip 适配导出/转换获得。训练框架及模型授权仍须分别核实，不将它们声明为 Apache-2.0 或 MIT。数据集许可不自动替代模型或软件许可。
 
 本项目原创部分尚未选择公开许可证。提供源文件不等于开放任意复制、再分发或商业使用许可。作者确认后可添加根 LICENSE，并更新本文件。

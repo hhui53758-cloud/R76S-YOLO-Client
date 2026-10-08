@@ -1,5 +1,7 @@
 # Runtime environments and build artifacts
 .venv/
+.venv-train/
+training/generated_data.yaml
 venv/
 __pycache__/
 *.py[cod]

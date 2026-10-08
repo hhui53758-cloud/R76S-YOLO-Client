@@ -6,7 +6,7 @@ import json
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-SKIP = {".git", ".venv", "venv", "__pycache__", "dist", "build", "release"}
+SKIP = {".git", ".venv", ".venv-train", "venv", "__pycache__", "dist", "build", "release", "datasets", "training_runs"}
 
 def main() -> None:
     manifest = json.loads((ROOT / "deploy/model_manifest.json").read_text(encoding="utf-8"))

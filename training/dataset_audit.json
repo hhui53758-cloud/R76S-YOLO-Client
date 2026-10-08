@@ -1,0 +1,54 @@
+{
+  "source_url": "https://universe.roboflow.com/keai-xiao-zwt9l/waste-8vlsn",
+  "source_confirmed_by": "project owner",
+  "upstream_version": null,
+  "license": "CC BY 4.0 (upstream dataset)",
+  "upstream_page_images": 2739,
+  "local_images": 2743,
+  "splits": {
+    "train": {
+      "images": 1920,
+      "labels": 1920,
+      "boxes": 2783,
+      "boxes_by_class": {
+        "recyclable waste": 1126,
+        "hazardous waste": 550,
+        "kitchen waste": 597,
+        "other waste": 510
+      }
+    },
+    "val": {
+      "images": 548,
+      "labels": 548,
+      "boxes": 763,
+      "boxes_by_class": {
+        "recyclable waste": 329,
+        "hazardous waste": 164,
+        "kitchen waste": 150,
+        "other waste": 120
+      }
+    },
+    "test": {
+      "images": 275,
+      "labels": 275,
+      "boxes": 379,
+      "boxes_by_class": {
+        "recyclable waste": 154,
+        "hazardous waste": 86,
+        "kitchen waste": 87,
+        "other waste": 52
+      }
+    }
+  },
+  "cross_split_identical_image_groups": 1,
+  "limitations": "Local snapshot is not verified byte-for-byte against upstream. Extra images and historical modifications are not traced; upstream license scope for additions is unverified.",
+  "cross_split_identical_images": [
+    {
+      "sha256": "6cdb164852be8c8ff09b0a6eeb1057d35608d70bf678cb0c0355cd62e5bad1a0",
+      "files": [
+        "images/train/fimg_3895.jpg",
+        "images/val/fimg_3939.jpg"
+      ]
+    }
+  ]
+}
