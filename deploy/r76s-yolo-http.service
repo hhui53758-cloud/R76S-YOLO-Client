@@ -1,0 +1,16 @@
+[Unit]
+Description=R76S YOLO RKNN HTTP inference service
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=pi
+WorkingDirectory=/home/pi/r76s-yolo/deploy
+ExecStart=/home/pi/r76s-yolo/deploy/venv/bin/python /home/pi/r76s-yolo/deploy/r76s_http_service.py --bind 0.0.0.0 --port 8765
+Restart=on-failure
+RestartSec=3
+Environment=PYTHONUNBUFFERED=1
+
+[Install]
+WantedBy=multi-user.target

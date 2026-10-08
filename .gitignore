@@ -1,0 +1,43 @@
+# Runtime environments and build artifacts
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+build/
+dist/
+release/
+*.zip
+*.whl
+offline-r76s/
+_workflow_test_output/
+results/
+*.log
+*_diagnostic.txt
+*_audit.txt
+*_probe.txt
+*_test_result.txt
+# Credentials must never be committed
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.pub
+id_rsa*
+id_ed25519*
+codex_r76s_*
+known_hosts
+.ssh/
+# Private training data, OS images and user captures
+*.img
+*.img.gz
+*.etl
+*.pt
+camera_test*.jpg
+camera_latest*.jpg
+datasets/
+training_runs/
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db

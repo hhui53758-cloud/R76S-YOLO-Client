@@ -1,0 +1,37 @@
+{
+  "contract_version": 1,
+  "model_family": "YOLO11n detect",
+  "input": {
+    "width": 640,
+    "height": 640,
+    "color": "RGB",
+    "layout_windows": "NCHW",
+    "layout_r76s": "NHWC",
+    "letterbox_color": [0, 0, 0]
+  },
+  "classes": [
+    {"id": 0, "en": "recyclable waste", "zh": "可回收物"},
+    {"id": 1, "en": "hazardous waste", "zh": "有害垃圾"},
+    {"id": 2, "en": "kitchen waste", "zh": "厨余垃圾"},
+    {"id": 3, "en": "other waste", "zh": "其他垃圾"}
+  ],
+  "postprocess": {
+    "output_count": 9,
+    "dfl_branches": 3,
+    "default_confidence": 0.55,
+    "default_iou": 0.45,
+    "nms": "per-class"
+  },
+  "artifacts": {
+    "windows": {
+      "file": "best.onnx",
+      "sha256": "7e83e1aa276892bc4de828034bac2799c96fc5590c26dac5c0c56790cda84883"
+    },
+    "r76s": {
+      "file": "best_int8.rknn",
+      "sha256": "91d96d974068630fbfab691cc434b8f50fa234b5691a6924c33701dc66d98a94",
+      "target": "rk3576",
+      "runtime": "RKNNLite 2.3.2"
+    }
+  }
+}
